@@ -155,15 +155,7 @@ public class MainActivity extends FragmentActivity {
                 .withActivity(this)
                 .withRequestCode(FILE_PICKER_REQUEST_CODE)
                 .withHiddenFiles(true)
-<<<<<<< HEAD
                 .withTitle("Data library")
-=======
-<<<<<<< HEAD
-                .withTitle("Data library")
-=======
-                .withTitle("Sample title")
->>>>>>> 61c13fc76d5b91aef01315676fa729e470227743
->>>>>>> 43ffe6d1fcbcaca5e6ab9dcc0194a7b111d2f76d
                 .start();
     }
 
