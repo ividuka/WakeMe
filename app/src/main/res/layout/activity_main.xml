@@ -54,7 +54,15 @@
         android:background="#B2DFDB"
         android:textColor="#B71C1C"
         android:layout_margin="30sp"
+<<<<<<< HEAD
         android:text="@string/btn_setup"/>
+=======
+<<<<<<< HEAD
+        android:text="@string/btn_setup"/>
+=======
+        android:text="Setup"/>
+>>>>>>> 61c13fc76d5b91aef01315676fa729e470227743
+>>>>>>> 43ffe6d1fcbcaca5e6ab9dcc0194a7b111d2f76d
 
     <TextView
         android:layout_width="wrap_content"
