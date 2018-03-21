@@ -2,6 +2,9 @@
     <string name="app_name">MyAlarm</string>
     <string name="btn_start"> Start </string>
     <string name="btn_stop"> Stop </string>
+<<<<<<< HEAD
     <string name="btn_setup"> Setup </string>
+=======
+>>>>>>> 61c13fc76d5b91aef01315676fa729e470227743
     <string name="wakeme">WakeMe</string>
 </resources>
