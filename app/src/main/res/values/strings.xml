@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MyAlarm</string>
+    <string name="btn_start"> Start </string>
+    <string name="btn_stop"> Stop </string>
+    <string name="btn_setup"> Setup </string>
+    <string name="wakeme">WakeMe</string>
+</resources>

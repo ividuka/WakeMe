@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#80CBC4"
+    tools:context="com.example.ivana.myalarm.MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textColor="#B71C1C"
+        android:textSize="60sp"
+        android:text="@string/wakeme"
+        android:id="@+id/title"/>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:background="#B2DFDB"
+        android:textColor="#B71C1C"
+        android:layout_margin="30sp"
+        android:text="@string/btn_start"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/button1"
+        android:textColor="#B71C1C"
+        android:textSize="80sp"
+        android:id="@+id/msg1"/>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/msg1"
+        android:background="#B2DFDB"
+        android:textColor="#B71C1C"
+        android:layout_margin="30sp"
+        android:text="@string/btn_stop"/>
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button2"
+        android:background="#B2DFDB"
+        android:textColor="#B71C1C"
+        android:layout_margin="30sp"
+        android:text="@string/btn_setup"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="#B71C1C"
+        android:textSize="30sp"
+        android:id="@+id/msg2"/>
+
+</RelativeLayout>
