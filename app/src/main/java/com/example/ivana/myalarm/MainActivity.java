@@ -1,5 +1,6 @@
 package com.example.ivana.myalarm;
 import java.util.Calendar;
+import java.util.regex.Pattern;
 
 import android.Manifest;
 import android.app.AlarmManager;
@@ -34,14 +35,12 @@ public class MainActivity extends FragmentActivity {
     private static int timeMinute = Calendar.getInstance().get(Calendar.MINUTE);
 
     TextView textView1;
-    private static TextView textView2;
-
-    public static TextView getTextView2() {
-        return textView2;
-    }
+    TextView textView2;
 
     AlarmManager alarmManager;
     private PendingIntent pendingIntent;
+
+    private static String ringtonePath = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +58,7 @@ public class MainActivity extends FragmentActivity {
         OnClickListener listener1 = new OnClickListener() {
             public void onClick(View view) {
                 textView2.setText("");
+                // Log.i("msg", "ciaoo");
                 Bundle bundle = new Bundle();
                 bundle.putInt(MyConstants.HOUR, timeHour);
                 bundle.putInt(MyConstants.MINUTE, timeMinute);
@@ -69,6 +69,7 @@ public class MainActivity extends FragmentActivity {
                 FragmentTransaction transaction = manager.beginTransaction();
                 transaction.add(fragment, MyConstants.TIME_PICKER);
                 transaction.commit();
+
             }
         };
         Button btn1 = (Button)findViewById(R.id.button1);
@@ -105,6 +106,14 @@ public class MainActivity extends FragmentActivity {
         }
     }
 
+    public static void setRingtonePath(String path) {
+        ringtonePath = path;
+    }
+
+    public static String getRingtonePath() {
+        return ringtonePath;
+    }
+
     private void setAlarm(){
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.HOUR_OF_DAY, timeHour);
@@ -112,10 +121,16 @@ public class MainActivity extends FragmentActivity {
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
     }
 
-    private void cancelAlarm() {
+    public void cancelAlarm() {
         if (alarmManager!= null) {
             alarmManager.cancel(pendingIntent);
+            stopService(new Intent(MainActivity.this, RingtoneService.class));
         }
+    }
+
+    public void CreateAlarmDialog() {
+        AlarmDialog alert = new AlarmDialog();
+        alert.show(this.getFragmentManager(), "AlarmDialog");
     }
 
     private void checkPermssionsAndOpenFilePicker() {
@@ -154,6 +169,7 @@ public class MainActivity extends FragmentActivity {
         new MaterialFilePicker()
                 .withActivity(this)
                 .withRequestCode(FILE_PICKER_REQUEST_CODE)
+                .withFilter(Pattern.compile(".*\\.mp3$"))
                 .withHiddenFiles(true)
                 .withTitle("Data library")
                 .start();
@@ -169,6 +185,7 @@ public class MainActivity extends FragmentActivity {
             if (path != null) {
                 Log.d("Path: ", path);
                 Toast.makeText(this, "Picked file: " + path, Toast.LENGTH_LONG).show();
+                setRingtonePath(path);
             }
         }
     }
